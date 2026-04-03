@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>AgentHub</h1>
+    <button onclick="goHome()">← Back</button>
+</header>
+
+<section class="agent-container">
+
+    <h2 id="agentTitle">AI Agent</h2>
+    <p>Enter your input below</p>
+
+    <textarea id="input" placeholder="Enter your prompt..."></textarea>
+
+    <button onclick="runAgent()">Run Agent</button>
+
+    <h3>Output:</h3>
+    <div id="output"></div>
+
+</section>
+
+<script>
+
+// Load agent name dynamically
+window.onload = function() {
+    let name = localStorage.getItem("agentName");
+    if(name) {
+        document.getElementById("agentTitle").innerText = name;
+    }
+};
+
+function goHome() {
+    window.location.href = "index.html";
+}
+
+function runAgent() {
+    let input = document.getElementById("input").value;
+
+    if(input === "") {
+        document.getElementById("output").innerText = "Please enter something!";
+        return;
+    }
+
+    document.getElementById("output").innerText =
+        "Generated AI Output for: " + input;
+}
+
+</script>
+
+</body>
+</html>

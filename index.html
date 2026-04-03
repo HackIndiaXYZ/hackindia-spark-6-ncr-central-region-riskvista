@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AgentHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+let user = localStorage.getItem("user");
+
+if(!user) {
+  window.location.href = "login.html";
+}
+</script>
+<body>
+
+<!-- Navbar -->
+<header>
+    <h1>AgentHub</h1>
+    <input type="text" placeholder="Search AI Agents...">
+    <button onclick="goDashboard()">Dashboard</button>
+    <button onclick="logout()">Logout</button>
+</header>
+
+<!-- MAIN CONTAINER -->
+<section class="category-section">
+
+<!-- 1. PRODUCTIVITY -->
+<h2>Productivity & Personal Assistants</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Personal AI Assistant Builder</h3>
+<p>Custom workflows, reminders</p>
+<button onclick="openAgent('Personal AI Assistant')">Use</button>
+</div>
+
+<div class="card"><p>Task Management</p></div>
+<div class="card"><p>To-Do Automation</p></div>
+<div class="card"><p>Calendar Scheduling</p></div>
+<div class="card"><p>Email Assistant</p></div>
+<div class="card"><p>Meeting Summarization</p></div>
+<div class="card"><p>Notes & Docs</p></div>
+<div class="card"><p>Reminder System</p></div>
+<div class="card"><p>Knowledge Assistant</p></div>
+<div class="card"><p>Habit Tracking</p></div>
+<div class="card"><p>Voice Assistant</p></div>
+
+</div>
+
+<!-- 2. BUSINESS -->
+<h2>Business & Enterprise Automation</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Business Workflow Agent</h3>
+<p>Automate business processes</p>
+<button onclick="openAgent('Business Workflow')">Use</button>
+</div>
+
+<div class="card"><p>CRM Automation</p></div>
+<div class="card"><p>Customer Support</p></div>
+<div class="card"><p>HR Recruitment</p></div>
+<div class="card"><p>Payroll</p></div>
+<div class="card"><p>Workflow Automation</p></div>
+<div class="card"><p>Sales Assistant</p></div>
+<div class="card"><p>Reports</p></div>
+<div class="card"><p>Lead Generation</p></div>
+<div class="card"><p>Knowledge Bots</p></div>
+<div class="card"><p>Document Processing</p></div>
+
+</div>
+
+<!-- 3. CREATIVE -->
+<h2>Creative & Content Generation</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Content Creator AI</h3>
+<p>Text, image, video creation</p>
+<button onclick="openAgent('Content Creator')">Use</button>
+</div>
+
+<div class="card"><p>Blog Writing</p></div>
+<div class="card"><p>Social Media</p></div>
+<div class="card"><p>Image Generation</p></div>
+<div class="card"><p>Video Editing</p></div>
+<div class="card"><p>Music Generation</p></div>
+<div class="card"><p>Script Writing</p></div>
+<div class="card"><p>Logo Design</p></div>
+<div class="card"><p>Meme Generator</p></div>
+<div class="card"><p>Presentation</p></div>
+<div class="card"><p>Copywriting</p></div>
+
+</div>
+
+<!-- 4. DATA -->
+<h2>Data Analysis & Analytics</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Data Insights AI</h3>
+<p>Dashboards & predictions</p>
+<button onclick="openAgent('Data Insights')">Use</button>
+</div>
+
+<div class="card"><p>Data Visualization</p></div>
+<div class="card"><p>Predictive Analytics</p></div>
+<div class="card"><p>Business Intelligence</p></div>
+<div class="card"><p>Dashboard</p></div>
+<div class="card"><p>Financial Analysis</p></div>
+<div class="card"><p>Market Trends</p></div>
+<div class="card"><p>Reports</p></div>
+<div class="card"><p>Data Cleaning</p></div>
+<div class="card"><p>A/B Testing</p></div>
+<div class="card"><p>Forecasting</p></div>
+
+</div>
+
+<!-- 5. DEVELOPER -->
+<h2>Developer Tools & Coding</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Code Assistant</h3>
+<p>AI coding helper</p>
+<button onclick="openAgent('Code Assistant')">Use</button>
+</div>
+
+<div class="card"><p>Code Generation</p></div>
+<div class="card"><p>Code Completion</p></div>
+<div class="card"><p>Bug Fixing</p></div>
+<div class="card"><p>Code Review</p></div>
+<div class="card"><p>API Generator</p></div>
+<div class="card"><p>Documentation</p></div>
+<div class="card"><p>DevOps</p></div>
+<div class="card"><p>Testing</p></div>
+<div class="card"><p>DB Queries</p></div>
+<div class="card"><p>Version Control</p></div>
+
+</div>
+
+<!-- 6. EDUCATION -->
+<h2>Education & Learning</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Personal Tutor AI</h3>
+<p>Learn anything</p>
+<button onclick="openAgent('Tutor AI')">Use</button>
+</div>
+
+<div class="card"><p>AI Tutors</p></div>
+<div class="card"><p>Quiz Generator</p></div>
+<div class="card"><p>Assignments</p></div>
+<div class="card"><p>Study Planner</p></div>
+<div class="card"><p>Language Learning</p></div>
+<div class="card"><p>Concept Explainer</p></div>
+<div class="card"><p>Flashcards</p></div>
+<div class="card"><p>Exam Prep</p></div>
+<div class="card"><p>Coding Practice</p></div>
+<div class="card"><p>Doubt Solving</p></div>
+
+</div>
+
+<!-- 7. MARKETING -->
+<h2>E-commerce & Marketing</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Marketing AI Agent</h3>
+<p>SEO & ads automation</p>
+<button onclick="openAgent('Marketing AI')">Use</button>
+</div>
+
+<div class="card"><p>Product Recommendation</p></div>
+<div class="card"><p>Ad Copy</p></div>
+<div class="card"><p>SEO Tools</p></div>
+<div class="card"><p>Email Marketing</p></div>
+<div class="card"><p>Segmentation</p></div>
+<div class="card"><p>Sales Chatbot</p></div>
+<div class="card"><p>Pricing</p></div>
+<div class="card"><p>Review Analysis</p></div>
+<div class="card"><p>Campaign Analytics</p></div>
+<div class="card"><p>Influencers</p></div>
+
+</div>
+
+<!-- 8. FINANCE -->
+<h2>Finance & FinTech</h2>
+<div class="agents">
+
+<div class="card main">
+<h3>Finance Advisor AI</h3>
+<p>Budget & investments</p>
+<button onclick="openAgent('Finance AI')">Use</button>
+</div>
+
+<div class="card"><p>Budget Planning</p></div>
+<div class="card"><p>Expense Tracking</p></div>
+<div class="card"><p>Investment Advisory</p></div>
+<div class="card"><p>Stock Analysis</p></div>
+<div class="card"><p>Trading Bots</p></div>
+<div class="card"><p>Risk Assessment</p></div>
+<div class="card"><p>Fraud Detection</p></div>
+<div class="card"><p>Credit Score</p></div>
+<div class="card"><p>Tax Tools</p></div>
+<div class="card"><p>Reports</p></div>
+
+</div>
+
+</section>
+<div class="overlay" id="chatOverlay">
+  <div class="chat-popup">
+
+    <<!-- Header -->
+    <div class="chat-header">
+      <div>
+        <h3 id="agentTitle">Agent Name</h3>
+        <span>AI Agent — AgentHub</span>
+      </div>
+      <button class="close-btn" onclick="closeChat()">✕</button>
+    </div>
+
+    <<!-- Messages area -->
+    <div class="chat-messages" id="chatMessages"></div>
+
+    <<!-- Input row -->
+    <div class="chat-input-row">
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Type your message..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+
+  </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

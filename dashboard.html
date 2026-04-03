@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Dashboard</h1>
+    <button onclick="goHome()">Home</button>
+    <button onclick="logout()">Logout</button>
+</header>
+
+<section style="padding:30px">
+
+    <h2 id="userName"></h2>
+
+    <!-- <h3>Earnings: ₹<span id="earnings"></span></h3> -->
+
+    <h3>Your Visited Agents</h3>
+    <div id="agents" style="display:flex; gap:10px; flex-wrap:wrap;"></div>
+
+    <h3>History</h3>
+    <ul id="history"></ul>
+
+</section>
+
+<script>
+let user = localStorage.getItem("user");
+
+if(!user) {
+  window.location.href = "login.html";
+}
+
+// show user
+document.getElementById("userName").innerText = "Welcome " + user;
+
+// earnings
+// document.getElementById("earnings").innerText =
+//   localStorage.getItem(user + "_earnings") || 0;
+
+// agents
+let agents = JSON.parse(localStorage.getItem(user + "_agents")) || [];
+let container = document.getElementById("agents");
+
+agents.forEach(a => {
+  let div = document.createElement("div");
+  div.className = "card";
+  div.innerText = a;
+  container.appendChild(div);
+});
+
+// history
+let history = JSON.parse(localStorage.getItem(user + "_history")) || [];
+let h = document.getElementById("history");
+
+history.forEach(item => {
+  let li = document.createElement("li");
+  li.innerText = item.agent + ": " + item.message;
+  h.appendChild(li);
+});
+
+function goHome() {
+  window.location.href = "index.html";
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
