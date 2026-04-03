@@ -10,15 +10,15 @@ let chatHistory = [];
 // This runs when someone clicks a "Use" button
 function openAgent(agentName) {
 
-  // 🔐 get user
+  // get user
   let user = localStorage.getItem("user");
 
-  // 🔥 SAVE AGENT
+  // SAVE AGENT
   let agents = JSON.parse(localStorage.getItem(user + "_agents")) || [];
   agents.push(agentName);
   localStorage.setItem(user + "_agents", JSON.stringify(agents));
 
-  // 💰 EARNINGS
+  // EARNINGS
   let earnings = localStorage.getItem(user + "_earnings") || 0;
   earnings = parseInt(earnings) + 10;
   localStorage.setItem(user + "_earnings", earnings);
